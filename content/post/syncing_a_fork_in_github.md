@@ -11,7 +11,7 @@ categories = [
     "Development",
 ]
 
-image = "empty.jpg" # optional
+ # image = "default.jpg"
 toc = true # optional, When set to TRUE this parameter, table of contents appears in only this article.
 +++
 
