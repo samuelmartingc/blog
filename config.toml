@@ -4,7 +4,7 @@ title = "ItAndWhatever"
 author = "Samuel Martin"
 copyright = "Copyright (c) 2016 - 2036, Samuel Martin; all rights reserved."
 canonifyurls = true
-paginate = 3
+paginate = 5
 theme = "hugo_theme_beg"
 [params]
   disqusShortname = "your disqus id." # optional
