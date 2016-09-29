@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {{ .Hugo.Generator }}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/{{ with .Site.Params.SyntaxHighlightTheme }}{{ . }}{{ else  }}solarized_dark.min.css{{ end }}">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
+
+    {{ if eq .URL "/" }}
+    <title>{{ .Title }}</title>
+    <meta property='og:title' content="{{ .Title }}">
+    <meta property="og:type" content="website">
+    {{ else }}
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
+    <meta property="og:type" content="article">
+    {{ end }}
+
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Params.image }}<meta property="og:image" content="{{ $.Site.BaseURL }}images/{{ . }}">{{ end }}
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+            	<div class="navbar-brand" style="padding-top: 15px;">
+            		  <a href="https://twitter.com/samuelmartingc" rel="me">
+            				<svg width="25px" height="25px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            					<g fill-rule="evenodd">
+            					<path d="M100,0 C44.772,0 0,44.772 0,100 C0,155.228 44.772,200 100,200 C155.228,200 200,155.228 200,100 C200,44.772 155.228,0 100,0 Z M131.085844,49.1820697 C135.882815,50.1099098 141.754127,52.7769806 144.349825,55.2862809 L146.460943,57.2809493 L150.570486,56.2253903 C152.865669,55.6318732 156.377938,54.4335696 158.436466,53.5245117 C160.494994,52.6154537 162.373213,51.9430514 162.546009,52.1158475 C163.263489,52.8333271 159.112625,58.6745877 155.502689,61.9764964 L151.629801,65.5000349 L155.033134,65.0304802 C156.937648,64.7787989 160.247069,63.9786777 162.31311,63.268711 C164.551947,62.4986412 166.069548,62.2619857 166.069548,62.6827067 C166.069548,63.0696198 163.34613,66.0296927 160.081786,69.2564726 L154.21423,75.1240283 L153.744676,81.8142438 C152.294691,102.455869 144.781815,119.371108 130.852945,133.465262 C119.910442,144.53924 107.288811,151.270776 92.2330088,154.125669 C85.3925358,155.425396 72.9775093,155.85363 67.1099537,155.064778 C59.920132,154.099374 50.9873232,151.402252 43.6322182,147.905008 L37.0584523,144.734575 L43.9853234,144.26502 C52.2419734,143.746632 57.9404893,142.375532 64.529281,139.336574 C69.3976242,137.090224 75.832402,133.149721 75.3290393,132.646358 C75.1787818,132.496101 73.2855372,131.988982 71.1030469,131.590799 C63.2896566,130.159597 56.0021675,124.953174 52.3208586,117.973713 L50.5590893,114.57038 L55.9608467,114.217275 C61.3776298,113.879196 63.3309774,113.270653 61.0094989,112.571955 C53.9924733,110.46835 46.9341269,104.642115 43.7524242,98.3688646 C42.471479,95.840782 40.5819908,89.0153348 40.5819908,86.8666524 C40.5819908,86.7389335 41.2318546,87.0469614 41.990655,87.4526567 C43.4594221,88.2377522 52.1856268,90.1685611 52.5575141,89.8004302 C52.6777201,89.6802242 51.0436698,87.8658648 49.0339756,85.8110934 C47.0280379,83.756322 44.5675712,80.322938 43.5157687,78.1817685 C41.7878073,74.6544736 41.6413063,73.6402354 41.6375498,67.2655607 C41.6337934,61.852534 41.9230391,59.4709525 42.9297644,56.9353571 L44.221979,53.6484741 L46.9228576,56.6987015 C59.2477296,70.5186357 77.2523354,79.5265732 96.9285559,81.7015506 L100.684994,82.0546558 L100.452094,76.7731044 C100.189144,70.3383267 101.402473,65.7442034 104.678087,60.8082443 C109.681662,53.2578046 118.787267,48.5134238 127.445856,48.712515 C128.681724,48.7425665 129.880027,48.9491706 131.085844,49.1820697 Z" fill="#444444"></path>
+            					</g>
+            				</svg>
+            			</a>
+            			<a href="https://www.linkedin.com/in/samuel-martín-gómez-calcerrada-a8347676" rel="me">
+            				<svg width="25px" height="25px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            					<path d="M82.3806444,80.7221807 L82.3806444,159.65156 L106.90504,159.65156 L106.90504,120.605335 C106.90504,110.310265 108.852259,100.338328 121.617533,100.338328 C134.189081,100.338328 134.369024,112.111232 134.369024,121.269978 L134.369024,159.65156 L158.87198,159.65156 L158.87198,116.357901 C158.87198,95.0977583 154.286864,78.7542871 129.463839,78.7542871 C117.529368,78.7542871 109.525325,85.2988733 106.249586,91.5027153 L105.914967,91.5027153 L105.914967,80.7221807 Z M100,0 C155.228474,-2.27373675e-14 200,44.771526 200,100 C200,155.228474 155.228474,200 100,200 C44.771526,200 -7.5791226e-15,155.228474 0,100 C0,44.771526 44.771526,1.51545443e-14 100,0 Z M54.7252307,41.4822291 C46.8620791,41.4822291 40.5058594,47.8568261 40.5058594,55.7023661 C40.5058594,63.556329 46.8620791,69.930926 54.7252307,69.930926 C62.5677078,69.930926 68.9423048,63.556329 68.9423048,55.7023661 C68.9423048,47.8568261 62.5677078,41.4822291 54.7252307,41.4822291 Z M42.4530786,80.7221807 L42.4530786,159.65156 L66.9950856,159.65156 L66.9950856,80.7221807 Z M42.4530786,80.7221807" fill="#444444"></path>
+            					</g>
+            				</svg>
+            			</a>
+            	</div>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            {{ range .Site.Menus }}
+            <ul class="nav navbar-nav navbar-right">
+              {{ range . }}
+              {{ if .HasChildren }}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ .Name }} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  {{ range .Children }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                  {{ end }}
+                </ul>
+              </li>
+              {{ else }}
+              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+              {{ end }}
+              {{ end }}
+            </ul>
+            {{ end }}
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
