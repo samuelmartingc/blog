@@ -82,4 +82,4 @@ This step will be probably taking more time than the previous one, because most 
 
 **Conclusion**
 
-This post has been short enough to not waste your time reading unrelating things, I hope that you have find this commands useful. Have a good day :)
+This post has been short enough to not waste your time reading unrelated things, I hope that you have find this commands useful. Have a good day :)
