@@ -14,9 +14,9 @@ categories = [
 toc = true # optional, When set to TRUE this parameter, table of contents appears in only this article.
 +++
 
-It’s easier that you think to start with a No-SQL database like MongoDB.
+It’s easier than what you think to start with a No-SQL database like MongoDB.
 
-The first step is to install MongoDB. I am going to install it in Ubuntu 14.04 with this few lines of code in bash.
+The first step is to install MongoDB. I am going to install it in Ubuntu 14.04 with these commands:
 
 ```bash
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
@@ -26,9 +26,10 @@ sudo apt-get install -y mongodb-org
 ```
 If you want to install it with other OS or a specific version you should visit the [official page](https://docs.mongodb.org/manual/installation/)
 
-Once you have installed it you can start the service as usual with this command
-sudo service mongod start
-Ok, now we have a local MongoDB in out system, let’s do a quick example with nodeJS and mongoDB.
+Once you have installed it you can start the service as usual with this command:
+
+    sudo service mongod start
+Ok, now we have a local MongoDB in out system, let’s do a quick example with nodeJS and MngoDB.
 
 In order to make our program as easy as possible, we will insert manually the data in our database using the mongo shell.
 Type mongo to open the shell and then write this commands.
@@ -37,7 +38,7 @@ Type mongo to open the shell and then write this commands.
 show dbs
 use hello
 db.world.find()
-db.world.insert({test: "welcome to mongoDB!"})
+db.world.insert({test: "welcome to MngoDB!"})
 db.world.find()
 exit
 ```
@@ -46,9 +47,9 @@ Now that we have the sample data inserted in our database we will begin with our
 
 I am supposing that you have nodeJS already installed. But if you need to install it, just follow a simple guide to install node and npm before following with this tutorial.
 
-Ok, the first step is to create a main file, i have called it app.js
+Ok, the first step is to create a main file, I've called it `app.js`
 
-touch app.js
+    touch app.js
 
 Then insert this code with your favourite editor.
 
@@ -70,9 +71,9 @@ MongoClient.connect('mongodb://127.0.0.1:27017/hello', function(err, db) {
 });
 ```
 
-If you try to execute this file, you will receive an error, the reason is that you must install the package ‘mongodb’ managed by npm
+If you try to execute this file, you will receive an error, the reason is that you must install the package `mongodb` managed by `npm`
 
-Now create a second file named package.json and fill it with this lines
+Now create a second file named `package.json` and fill it with these lines:
 
 ```json
 {
@@ -88,9 +89,9 @@ Now create a second file named package.json and fill it with this lines
 }
 ```
 
-Now to install the mongo package just type npm install or sudo npm install
+Now to install the mongo package just type `npm install` (or `sudo npm install -g` to install the dependencies globally)
 
-Ok, we are almost finished. The last step is to execute our program with node app.js or nodejs app.js depending of how you have installed nodejs.
+Ok, we are almost finished. The last step is to execute our program with `node app.js` or `nodejs app.js` depending of how you have installed `nodejs`.
 
 And the output should be something like
 
