@@ -15,20 +15,20 @@ image = "docker-logo.png"
 toc = true # optional, When set to TRUE this parameter, table of contents appears in only this article.
 +++
 
-Maybe you have heard about **Docker**, used to package your applications and services into a standardized unit which can be shipped and executed easily without external dependencies in every environment.
-In this post I want to show you how to install it in an easy way Docker on **Ubuntu 16.04 LTS**, and also how to run it without use it with sudo. Sounds right? Let’s start.
+Maybe you have heard about **Docker**, used to package your applications and services into a standardized unit which can be shipped and executed easily in every environment without external dependencies.
+In this post I want to show you how to install Docker on **Ubuntu 16.04 LTS** in an easy way, and also how to run it without root privileges. Sounds right? Let’s start.
 
 
 **Introduction**
 
 Developing complex enterprise applications can be tedious when you must mount every external service needed in your new machine, Elastic Search, MongoDB, Rabbitmq, etc.
-A good way to manage this task is by using Docker. With this container service you can easily download or create small containers with all the services you could need. Also it is essential to perform quick deploys for your code into production in no-time.
+A good way to manage this task is by using Docker. With this container service you can easily download or create small containers with all the services you could need. Also it's essential to quickly deploy your code into production.
 
 
 **Installing Docker on Ubuntu 16.04**
 
-I will make this guide as simple as i can.
-I will use Ubuntu 16.04 [LTS]. You will need the 64 bit version and your kernel must be at least in _3.10_, you can check this typing (uname -r) in the shell.
+I'll make this guide as simple as I can. I will use Ubuntu 16.04 [LTS]. You will need the 64 bit version and your kernel must be at least in _3.10_, you can check this typing (uname -r) in the shell.
+
 You must type the following commands in your shell, if you have any doubts you can see the official guide in https://docs.docker.com/  
 
 ```bash
@@ -41,9 +41,11 @@ Write the following line in  /etc/apt/sources.list.d/docker.list
 deb https://apt.dockerproject.org/repo ubuntu-xenial main
 
 
-You can open a simple editor like nano with this command
-sudo nano /etc/apt/sources.list.d/docker.list
-And then paste the text in the file and save it
+You can open a simple editor like nano with this command:
+
+    sudo nano /etc/apt/sources.list.d/docker.list
+    
+And then paste the following text in the file and save it
 ```bash
 sudo apt-get update
 sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
@@ -59,27 +61,28 @@ If the installation has been a success, you will see _“Hello from Docker!”_
 
 
 
+**Running Docker without requiring root permissions:**
 
-Running Docker without sudo permits
 Running Docker with sudo all time is not a great idea. We will fix this in this step :)
-First, we must add the docker group
+*Warning: in sensitive servers, we shouldn't be abe of running docker as any normal user*
+
+First, we must create the docker group:
 ```bash
 sudo groupadd docker
 ```
-Then add your current user to the docker group
+Then, add your current user to the docker group:
 ```bash
 sudo gpasswd -a ${USER} docker
 ```
-Now you can restart the daemon
+Now you can restart the Docker daemon:
 ```bash
 sudo service docker restart
 ```
-Now you should be able to run in a new terminal
+Now you should be able to run it without sudo:
 ```bash
 docker run hello-world
 ```
-without sudo
-If you have any problem, try rebooting your machine.
+If you have any problem, try logging out/in or rebooting your machine.
 
 
 
@@ -87,5 +90,5 @@ If you have any problem, try rebooting your machine.
 **Conclusion**
 
 
-Now you can use Docker in your machine, it is very handy, if you haven’t use it yet, more than you can expect by now.
-I hope this post has been helpful to you to install and run without sudo Docker.
+Now you can use Docker in your machine, it's very handy, if you haven’t use it yet, more than you can expect by now.
+I hope this post has been helpful to you to install Docker.
