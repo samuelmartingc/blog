@@ -13,9 +13,9 @@ categories = [
 toc = true # optional, When set to TRUE this parameter, table of contents appears in only this article.
 +++
 
-Classical logical operators are used with Boolean values, and returns the corresponding Boolean.
-However, in JavaScript, the && (and) and || (or) values ​​work in a most peculiar way.
-When working with different non-Boolean types, they convert the left value on a boolean, and depending on the result of this conversion, they will return the original left value or the right one.
+Classical logical operators are used with boolean values, and they return the corresponding boolean result.
+However, in JavaScript, the `&&` (and) and `||` (or) operator values work in a most peculiar way.
+When working with different non-boolean types, they convert the left value on a boolean, and depending on the result of this conversion, they will return the original left value or the right one.
 
 For example, the OR operator will return the value of its left if this has proved true, and if it was false, then it return the right.
 
