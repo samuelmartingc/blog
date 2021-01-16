@@ -1,4 +1,6 @@
-URL: https://samuelmartingc.github.io/blog/
+**I have moved this repo here https://github.com/samuelmartingc/samuelmartingc.github.io .**
+
+URL: https://samuelmartingc.github.io/
 
 Blog based in markdown && https://gohugo.io/
 
